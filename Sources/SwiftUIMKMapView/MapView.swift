@@ -5,16 +5,16 @@ import MapKit
 public struct MapView: UIViewRepresentable {
   /// - Parameters:
   ///   - visibleRect: Binding for map's visible rect.
-  ///   - annotations: Array of MKAnnotation objects to render on the map.
-  ///   - annotationViewFactory: Factory that provides the view associated with the specified annotation object.
-  ///   - overlays: Array of MKOverlay objects to render on the map.
-  ///   - overlayRendererFactory: Factory that returns renderer object to use when drawing the specified overlay.
+  ///   - annotations: Array of MKAnnotation objects to render on the map. Defaults to an empty array.
+  ///   - annotationViewFactory: Factory that provides the view associated with the specified annotation object. Defaults to an empty factory.
+  ///   - overlays: Array of MKOverlay objects to render on the map. Defaults to an empty array.
+  ///   - overlayRendererFactory: Factory that returns renderer object to use when drawing the specified overlay. Defaults to an empty factory.
   public init(
     visibleRect: Binding<MKMapRect>,
-    annotations: [MKAnnotation],
-    annotationViewFactory: AnnotationViewFactory,
-    overlays: [MKOverlay],
-    overlayRendererFactory: OverlayRendererFactory
+    annotations: [MKAnnotation] = [],
+    annotationViewFactory: AnnotationViewFactory = .empty,
+    overlays: [MKOverlay] = [],
+    overlayRendererFactory: OverlayRendererFactory = .empty
   ) {
     self._visibleRect = visibleRect
     self.annotations = annotations

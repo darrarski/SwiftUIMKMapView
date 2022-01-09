@@ -15,6 +15,9 @@ public struct OverlayRendererFactory {
 }
 
 extension OverlayRendererFactory {
+  /// An empty factory that does not return renderer.
+  public static let empty = Self(renderer: { _ in nil })
+
   /// Combines multiple factories into a single one.
   ///
   /// The combined factory returns first non-`nil` renderer returned by the provided factories.
@@ -41,9 +44,7 @@ extension OverlayRendererFactory {
   public static func combine(_ factories: Self...) -> Self {
     .combine(factories)
   }
-}
 
-extension OverlayRendererFactory {
   /// Creates a factory that uses provided closure to create renderer for overlay of the provided class.
   /// - Parameters:
   ///   - overlayClass: A class of the overlay.

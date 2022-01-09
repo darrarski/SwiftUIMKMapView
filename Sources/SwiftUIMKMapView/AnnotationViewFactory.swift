@@ -26,6 +26,9 @@ public struct AnnotationViewFactory {
 }
 
 extension AnnotationViewFactory {
+  /// An empty factory that does nothing and does not return views.
+  public static let empty = Self(register: { _ in }, view: { _, _ in nil })
+
   /// Combines multiple factories into a single one.
   ///
   /// The combined factory returns first non-`nil` view returned by the provided factories.
@@ -54,9 +57,7 @@ extension AnnotationViewFactory {
   public static func combine(_ factories: Self...) -> Self {
     .combine(factories)
   }
-}
 
-extension AnnotationViewFactory {
   /// Creates a factory that registers and dequeues views of provided class for provided annotation class.
   /// - Parameters:
   ///   - annotationClass: The annotation class (conforming to MKAnnotation).
