@@ -9,7 +9,7 @@ public final class MapViewCoordinator: NSObject, MKMapViewDelegate {
 
   let view: MapView
 
-  public func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
+  public func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
     view.visibleRect = mapView.visibleMapRect
   }
 
