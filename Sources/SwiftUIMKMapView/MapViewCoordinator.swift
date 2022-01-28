@@ -1,6 +1,6 @@
 import MapKit
 
-/// Coordinator for the MpaView UIViewRepresentable.
+/// Coordinator for the MapView UIViewRepresentable.
 public final class MapViewCoordinator: NSObject, MKMapViewDelegate {
   init(view: MapView) {
     self.view = view
